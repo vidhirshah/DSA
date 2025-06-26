@@ -1,3 +1,4 @@
+import re
 def check_pallindrome(inp:str,index:int):
     print(index)
     if index == int(len(inp)/2):
@@ -10,12 +11,9 @@ def check_pallindrome(inp:str,index:int):
 
 def isPalindrome(s:str):
     s = s.lower()
-    processed = ""
-    for i in s:
-        if i.isalnum():
-            processed = processed + i
+    processed = re.sub(r'[^a-zA-Z0-9]','',s)
     if len(processed) < 1:
         return True
     return check_pallindrome(processed,0)
 
-print(isPalindrome(""))
+print(isPalindrome("A man, a plan, a canal: Panama"))
