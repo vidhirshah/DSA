@@ -13,5 +13,4 @@ def robber(nums):
     return max(helper(nums,len(nums)-1,dp),helper(nums,len(nums)-2,dp))
 
 nums = [1,2,3,1]
-
 print(robber(nums))
