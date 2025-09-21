@@ -1,0 +1,15 @@
+def lengthOfLIS(nums:list):
+    nums.sort()
+    result = []
+    def helper(index,prev):
+        if index >= len(nums):
+            return 0
+        nottake = helper(index+1,prev)
+        take = 0
+        if prev == -1 or nums[index]%prev == 0:
+            take = 1 + helper(index+1,nums[index])
+        return max(take,nottake)
+    return helper(0,-1)
+
+nums = [10,9,2,5,3,7,101,18]
+print(lengthOfLIS(nums))
